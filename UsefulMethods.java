@@ -1,9 +1,9 @@
-package com.company;
+package com.Functionallity;
 
 /**
  * Automatic Generation Project - Author
  * Project Name: Master 2D Calculator
- * Author: ARCHISMAN NATH on 5/1/2021 in 12:07 PM
+ * Author: ARCHISMAN NATH and Daniel Kaiyali on 5/1/2021 in 12:07 PM
  */
 public class UsefulMethods {
     /*
@@ -23,7 +23,7 @@ public class UsefulMethods {
         System.out.println("Euler's number or e, is = " + E);
     }
     //Important Operators
-    public double add(double num1, double num2) {
+    public double Add(double num1, double num2) {
         double addedNums = num1 + num2;
         System.out.println("The number " + num1 + " + " + " The number " + num2 + " is = " + addedNums);
         return addedNums;
@@ -90,7 +90,7 @@ public class UsefulMethods {
         }
     }
 
-    public double areaOfTriangle(double base, double height) {
+    public double triangleArea(double base, double height) {
         if((base < 1) || (height < 1)) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -100,7 +100,7 @@ public class UsefulMethods {
     }
 
     //Circles
-    public double areaOfCircle(double radius) {
+    public double circleArea(double radius) {
         if(radius < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -109,7 +109,7 @@ public class UsefulMethods {
         return areaOfCircle;
     }
 
-    public double circumferenceOfCircle(double radius) {
+    public double circleCircumference(double radius) {
         if(radius < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -118,7 +118,7 @@ public class UsefulMethods {
         return circumference;
     }
 
-    public double findRadiusFromArea(double area) {
+    public double radiusFromArea(double area) {
         if(area < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -127,7 +127,7 @@ public class UsefulMethods {
         return radius;
     }
 
-    public double findRadiusFromCircumference(double circumference) {
+    public double radiusFromCircumference(double circumference) {
         if(circumference < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -139,7 +139,7 @@ public class UsefulMethods {
     //General Polygons -> Angles -> Diagonals
 
     //Rectangles -> Area
-    public double areaOfRectangle(double length, double width) {
+    public double rectangleArea(double length, double width) {
         if(length < 1 || width < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -148,7 +148,7 @@ public class UsefulMethods {
         return area;
     }
 
-    public  double perimeterOfRectangle(double length, double width) {
+    public  double rectanglePerimeter(double length, double width) {
         if(length < 1 || width < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
