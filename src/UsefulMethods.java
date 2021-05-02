@@ -1,4 +1,4 @@
-package src;
+package com.Functionallity;
 
 /**
  * Automatic Generation Project - Author
@@ -155,5 +155,19 @@ public class UsefulMethods {
         double perimeter = (2*length) + (2*width);
         System.out.println("The perimeter of your rectangle with length " + length + " and width of " + width + " has perimeter of = " + perimeter);
         return perimeter;
+    }
+
+    //new method
+    public void squareArea(double length, double width) {
+        if(length < 1 || width < 1) {
+            System.out.println(INVALID_VALUE_ENTERED);
+        } else {
+            if(length == width) {
+                double area = length * width;
+                System.out.println(area);
+            } else {
+                System.out.println("This is not a square - please enter the same values for width and length");
+            }
+        }
     }
 }
