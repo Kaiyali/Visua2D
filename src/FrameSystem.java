@@ -10,7 +10,7 @@ public class FrameSystem extends JFrame {
                 "Master Calculator\\src\\Master-Calculator.jpg");
         this.setIconImage(img.getImage());
         this.setSize(800,700);
-        this.setResizable(false);
+        //this.setResizable(false);
         this.setTitle("GeoMath 2D/3D"); // working Title
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null);

@@ -18,14 +18,22 @@ public class Main implements ActionListener {
     private static JPanel SidePanel;
     private static JPanel BottomPanel;
     private static FrameSystem Window;
-   // private static JTextField lengthInputfld;
+    private static FlatButton Openbtn;
+    private static JTextField lengthInputfld;
+
 
 
     public static void main(String[] args) {
+        foundation();
+    }
+
+    public static void foundation(){
         Window = new FrameSystem();
         SidePanel = new JPanel();
         BottomPanel = new JPanel();
-        //lengthInputfld = new JTextField(1);
+        Openbtn = new FlatButton();
+        lengthInputfld = new JTextField();
+
 
         SidePanel.setBounds(0, 0, 50, 650);
         SidePanel.setBackground(new Color(28, 27, 27));
@@ -40,15 +48,10 @@ public class Main implements ActionListener {
         BottomPanel.setBorder(redLine);
         Window.add(BottomPanel);
 
-        //textFieldSystemInput();
-    }
-    /*
-    public static void textFieldSystemInput(){
-        lengthInputfld.setBounds(50,20,25,25);
-        BottomPanel.add(lengthInputfld);
-    }
+        Openbtn.setBounds(0, 0, 50, 50);
+        Window.add(Openbtn);
 
-     */
+    }
 
 
 
