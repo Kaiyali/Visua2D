@@ -1,4 +1,4 @@
-# Geo.Math.Calculator - 2D/3D
+# GeoMath-2D/3D Calculator
 
 
 
