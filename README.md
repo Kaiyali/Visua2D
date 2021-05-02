@@ -1,4 +1,4 @@
-# GeoMath-2D/3D Calculator
+# GeoMath-2D/3D
 
 
 
