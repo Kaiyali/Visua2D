@@ -1,44 +1,64 @@
 package src;
 
+import src.FlatButton;
+import src.FrameSystem;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Automatic Generation Project - Author
  * Project Name: Master 2D Calculator
  * Author: ARCHISMAN NATH and DANIEL KAIYALI on 5/1/2021 in 12:08 PM
  */
-public class Main {
+public class Main implements ActionListener {
     private static JPanel SidePanel;
+    private static JPanel BottomPanel;
     private static FrameSystem Window;
-    private static FlatButton OpenFolderbtn;
+   // private static JTextField lengthInputfld;
 
 
     public static void main(String[] args) {
-
-
         Window = new FrameSystem();
-
         SidePanel = new JPanel();
+        BottomPanel = new JPanel();
+        //lengthInputfld = new JTextField(1);
+
         SidePanel.setBounds(0, 0, 50, 650);
         SidePanel.setBackground(new Color(28, 27, 27));
         SidePanel.setSize(250, 700);
-        Window.add(SidePanel);
         Border redLine= BorderFactory.createLineBorder(new Color(144, 16, 16));
         SidePanel.setBorder(redLine);
+        Window.add(SidePanel);
 
-        ButtonOpenFolder();
+        BottomPanel.setBounds(200, 500, 600, 100);
+        BottomPanel.setBackground(new Color(28, 27, 27));
+        BottomPanel.setSize(600, 200);
+        BottomPanel.setBorder(redLine);
+        Window.add(BottomPanel);
+
+        //textFieldSystemInput();
+    }
+    /*
+    public static void textFieldSystemInput(){
+        lengthInputfld.setBounds(50,20,25,25);
+        BottomPanel.add(lengthInputfld);
     }
 
-    public static void ButtonOpenFolder(){
-        OpenFolderbtn = new FlatButton();
-        OpenFolderbtn.setBounds(105, 30, 105, 30);
-        OpenFolderbtn.setLocation(500,500);
-        OpenFolderbtn.setPreferredSize(new Dimension(30,22));
-        OpenFolderbtn.setText("Open Folder");
-        Window.add(OpenFolderbtn);
+     */
+
+
+
+    // do not remove this method
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
+
+
 
 
 }

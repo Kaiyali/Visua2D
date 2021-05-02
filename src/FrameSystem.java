@@ -11,7 +11,7 @@ public class FrameSystem extends JFrame {
         this.setIconImage(img.getImage());
         this.setSize(800,700);
         this.setResizable(false);
-        this.setTitle("Master 2D Calculator"); // working Title
+        this.setTitle("GeoMath 2D/3D"); // working Title
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setVisible(true);
