@@ -1,4 +1,4 @@
-# Master-2D-Calculator
+# Geo.Math.Calculator - 2D/3D
 
 
 
