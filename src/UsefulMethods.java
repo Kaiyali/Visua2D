@@ -1,4 +1,4 @@
-package src;
+package com.Functionallity;
 
 /**
  * Automatic Generation Project - Author
@@ -16,55 +16,55 @@ public class UsefulMethods {
     public static final double E = Math.E;
     public final static String INVALID_VALUE_ENTERED = "Invalid Value(s) Entered";
 
-    public void calculatePi() {
+    public static void calculatePi() {
         System.out.println("Pi is = " + PI);
     }
-    public void calculateE() {
+    public static void calculateE() {
         System.out.println("Euler's number or e, is = " + E);
     }
     //Important Operators
-    public double Add(double num1, double num2) {
+    public static double Add(double num1, double num2) {
         double addedNums = num1 + num2;
         System.out.println("The number " + num1 + " + " + " The number " + num2 + " is = " + addedNums);
         return addedNums;
     }
 
-    public double subtract(double num1, double num2) {
+    public static double subtract(double num1, double num2) {
         double subtract = num1 - num2;
         System.out.println("The number " + num1 + " minus " + "The number " + num2 + " is = " + subtract);
         return subtract;
     }
 
-    public double multiply(double num1, double num2) {
+    public static double multiply(double num1, double num2) {
         double multiplyNums = num1 * num2;
         System.out.println("The number " + num1 + " multiplied by " + " The number " + num2 + " is = " + multiplyNums);
         return multiplyNums;
     }
 
-    public double divide(double num1, double num2) {
+    public static double divide(double num1, double num2) {
         double divideNums = num1 / num2;
         System.out.println("The number " + num1 + " divided by " + " The number " + num2 + " is = " + divideNums);
         return divideNums;
     }
     // Math basics^^^
     //Exponents and Square Roots
-    public double exp(double number, double exponent) {
+    public static double exp(double number, double exponent) {
         double totalValue = Math.pow(number, exponent);
         System.out.println("The number " + number + " raised to the power "+ exponent + " is = " + totalValue);
         return totalValue;
     }
 
-    public double squareRoot(double number) {
+    public static double squareRoot(double number) {
         System.out.println("The square root of the number " + number + " is = " + Math.sqrt(number));
         return Math.sqrt(number);
     }
 
-    public double cubeRoot(double number) {
+    public static double cubeRoot(double number) {
         System.out.println("The cube root of the number " + number + " is = " + Math.cbrt(64));
         return Math.cbrt(number);
     }
 
-    public double squareNumber(double number) {
+    public static double squareNumber(double number) {
         double result = number * number;
         System.out.println("The number " + number + " squared is " + result);
         return result;
@@ -77,7 +77,7 @@ public class UsefulMethods {
     }
 
     //Triangles
-    public void typeOfTriangle(int sideOne, int sideTwo, int sideThree) {
+    public static void typeOfTriangle(int sideOne, int sideTwo, int sideThree) {
         if(sideOne < 1 || sideTwo < 1 || sideThree < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -90,7 +90,7 @@ public class UsefulMethods {
         }
     }
 
-    public double triangleArea(double base, double height) {
+    public static double triangleArea(double base, double height) {
         if((base < 1) || (height < 1)) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -100,7 +100,7 @@ public class UsefulMethods {
     }
 
     //Circles
-    public double circleArea(double radius) {
+    public static double circleArea(double radius) {
         if(radius < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -109,7 +109,7 @@ public class UsefulMethods {
         return areaOfCircle;
     }
 
-    public double circleCircumference(double radius) {
+    public static double circleCircumference(double radius) {
         if(radius < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -118,7 +118,7 @@ public class UsefulMethods {
         return circumference;
     }
 
-    public double radiusFromArea(double area) {
+    public static double radiusFromArea(double area) {
         if(area < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -127,7 +127,7 @@ public class UsefulMethods {
         return radius;
     }
 
-    public double radiusFromCircumference(double circumference) {
+    public static double radiusFromCircumference(double circumference) {
         if(circumference < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -139,7 +139,7 @@ public class UsefulMethods {
     //General Polygons -> Angles -> Diagonals
 
     //Rectangles -> Area
-    public double rectangleArea(double length, double width) {
+    public static double rectangleArea(double length, double width) {
         if(length < 1 || width < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
@@ -148,12 +148,26 @@ public class UsefulMethods {
         return area;
     }
 
-    public  double rectanglePerimeter(double length, double width) {
+    public static double rectanglePerimeter(double length, double width) {
         if(length < 1 || width < 1) {
             System.out.println(INVALID_VALUE_ENTERED);
         }
         double perimeter = (2*length) + (2*width);
         System.out.println("The perimeter of your rectangle with length " + length + " and width of " + width + " has perimeter of = " + perimeter);
         return perimeter;
+    }
+
+    //new method
+    public static void squareArea(double length, double width) {
+        double area = length * width;
+        if(length < 0 || width < 0) {
+            System.out.println(INVALID_VALUE_ENTERED);
+        } else {
+            if(length != width) {
+                System.out.println("This is not a square - please enter the same values for width and length");
+            } else {
+                System.out.println(area);
+            }
+        }
     }
 }
