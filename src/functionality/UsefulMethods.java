@@ -1,4 +1,4 @@
-package com.Functionallity;
+package src.functionality;
 
 /**
  * Automatic Generation Project - Author

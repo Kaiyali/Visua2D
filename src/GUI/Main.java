@@ -1,4 +1,6 @@
-package src;
+package src.GUI;
+
+import src.GUI.FrameSystem;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -17,6 +19,8 @@ public class Main implements ActionListener {
     private static FrameSystem Window;
     private static JTextField lengthInputfld;
     private static JTextField widthInputfld;
+    private static JLabel lengthlbl;
+    private static JLabel widthlbl;
 
 
 
@@ -30,6 +34,8 @@ public class Main implements ActionListener {
         BottomPanel = new JPanel();
         lengthInputfld = new JTextField(1);
         widthInputfld = new JTextField(1);
+        lengthlbl = new JLabel("Length");
+        widthlbl = new JLabel("Width");
 
         SidePanel.setBounds(0, 0, 50, 650);
         SidePanel.setBackground(new Color(28, 27, 27));
@@ -50,8 +56,13 @@ public class Main implements ActionListener {
 
     public static void dimensionsInput(){
         lengthInputfld.setBounds(400, 550, 25, 25);
+        lengthlbl.setBounds(100,200,50,50); // working on
+        lengthlbl.setForeground(Color.WHITE);
+        lengthlbl.setFont(new Font ("Krona One", Font.PLAIN,20));
         Window.add(lengthInputfld);
+        BottomPanel.add(lengthlbl);
 
+        // add widthlbl in project
         widthInputfld.setBounds(400, 600, 25, 25);
         Window.add(widthInputfld);
         Window.setVisible(true);
