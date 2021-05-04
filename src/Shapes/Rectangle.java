@@ -1,5 +1,5 @@
 package src.Shapes;
-
+import src.functionality.UsefulMethods;
 import javax.swing.*;
 import java.awt.*;
 /**

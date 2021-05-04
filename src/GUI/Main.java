@@ -37,18 +37,16 @@ public class Main implements ActionListener {
         lengthlbl = new JLabel();
         widthlbl = new JLabel();
 
-        SidePanel.setBounds(0, 0, 50, 650);
         SidePanel.setBackground(new Color(28, 27, 27));
-        SidePanel.setSize(250, 700);
+        SidePanel.setPreferredSize(new Dimension(200, 800));
         Border redLine= BorderFactory.createLineBorder(new Color(144, 16, 16));
         SidePanel.setBorder(redLine);
-        Window.add(SidePanel);
+        Window.add(SidePanel,BorderLayout.WEST);
 
-        BottomPanel.setBounds(200, 500, 600, 100);
         BottomPanel.setBackground(new Color(28, 27, 27));
-        BottomPanel.setSize(600, 200);
+        BottomPanel.setPreferredSize(new Dimension(200, 150));
         BottomPanel.setBorder(redLine);
-        Window.add(BottomPanel);
+        Window.add(BottomPanel,BorderLayout.SOUTH);
 
         dimensionsInput();
 
@@ -56,17 +54,16 @@ public class Main implements ActionListener {
 
     public static void dimensionsInput(){
         lengthInputfld.setBounds(400, 550, 25, 25);
-        Window.add(lengthInputfld);
+        BottomPanel.add(lengthInputfld);
         lengthlbl.setBounds(0,10,50,50); // working on
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
         lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
         BottomPanel.add(lengthlbl);
 
-        // add widthlbl in project - Done
-        // set the label to the correct area
+
         widthInputfld.setBounds(400, 600, 25, 25);
-        Window.add(widthInputfld);
+        BottomPanel.add(widthInputfld); // changed
         widthlbl.setBounds(10,100,50,50); // working on
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);

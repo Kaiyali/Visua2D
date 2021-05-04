@@ -1,13 +1,11 @@
-package com.Shapes;
-
-import com.Functionallity.UsefulMethods;
-
+package src.Shapes;
+import src.functionality.UsefulMethods;
 /**
  * Automatic Generation Project - Author
  * Project Name: GeoMath-2D~3D
  * Author: ARCHISMAN NATH on 5/3/2021 in 10:54 PM
  */
-public class Circle  {
+public class Circle extends UsefulMethods  {
 
     public Circle(double radius) {
         UsefulMethods.circleArea(radius);
@@ -16,4 +14,5 @@ public class Circle  {
         UsefulMethods.radiusFromArea(circleArea(radius));
         UsefulMethods.radiusFromCircumference(circleCircumference(radius));
     }
+
 }

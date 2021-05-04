@@ -1,8 +1,7 @@
-package com.Shapes;
+package src.Shapes;
+import src.functionality.UsefulMethods;
 
-import com.Functionallity.UsefulMethods;
-
-public class Square {
+public class Square extends UsefulMethods  {
 
     public Square(double length, double width, double side) {
         UsefulMethods.squareArea(length, width);
