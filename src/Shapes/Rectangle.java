@@ -8,9 +8,19 @@ import java.awt.*;
     Hope this helps!
  **/
 public class Rectangle extends JComponent {
+    
+     public Rectangle(double length, double width) {
+        UsefulMethods.rectangleArea(length, width);
+        UsefulMethods.rectanglePerimeter(length, width);
+    }
+    
+    //draw rect
     public void paint(Graphics g){
         g.drawRect(480,480,200,100);
 
 
     }
+
+   
+
 }
