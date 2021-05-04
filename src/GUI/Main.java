@@ -34,8 +34,8 @@ public class Main implements ActionListener {
         BottomPanel = new JPanel();
         lengthInputfld = new JTextField(1);
         widthInputfld = new JTextField(1);
-        lengthlbl = new JLabel("Length");
-        widthlbl = new JLabel("Width");
+        lengthlbl = new JLabel();
+        widthlbl = new JLabel();
 
         SidePanel.setBounds(0, 0, 50, 650);
         SidePanel.setBackground(new Color(28, 27, 27));
@@ -56,17 +56,26 @@ public class Main implements ActionListener {
 
     public static void dimensionsInput(){
         lengthInputfld.setBounds(400, 550, 25, 25);
-        lengthlbl.setBounds(100,200,50,50); // working on
-        lengthlbl.setForeground(Color.WHITE);
-        lengthlbl.setFont(new Font ("Krona One", Font.PLAIN,20));
         Window.add(lengthInputfld);
+        lengthlbl.setBounds(0,10,50,50); // working on
+        lengthlbl.setText("Length");
+        lengthlbl.setForeground(Color.WHITE);
+        lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
         BottomPanel.add(lengthlbl);
 
-        // add widthlbl in project
+        // add widthlbl in project - Done
+        // set the label to the correct area
         widthInputfld.setBounds(400, 600, 25, 25);
         Window.add(widthInputfld);
+        widthlbl.setBounds(10,100,50,50); // working on
+        widthlbl.setText("Width");
+        widthlbl.setForeground(Color.WHITE);
+        widthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
+        BottomPanel.add(widthlbl);
+
         Window.setVisible(true);
     }
+
 
 
 
