@@ -170,4 +170,13 @@ public class UsefulMethods {
             }
         }
     }
+    
+     public static void squarePerimeter(double side) {
+        double perimeter = side * 4;
+        if(side < 0) {
+            System.out.println(INVALID_VALUE_ENTERED);
+        } else {
+            System.out.println("The perimeter is " + perimeter);
+        }
+    }
 }
