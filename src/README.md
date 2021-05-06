@@ -9,7 +9,7 @@ This application developed using the JAVA programming language is the first-ever
 
 
 # Working Layout
-![WindowMaster2d](https://user-images.githubusercontent.com/80181145/116793361-62899e80-aa94-11eb-9034-948eed561019.jpg)
+![GeoMath](https://user-images.githubusercontent.com/80181145/117224958-31380800-addf-11eb-9945-0c0c9ec3b0b1.jpg)
 
 
 
