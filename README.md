@@ -12,4 +12,4 @@ programs be cloned, redistributed, or published in any way without the authors(s
 
 
 # Working Layout
-![WindowMaster2d](https://user-images.githubusercontent.com/80181145/116793361-62899e80-aa94-11eb-9034-948eed561019.jpg)
+![GeoMath](https://user-images.githubusercontent.com/80181145/117224913-16659380-addf-11eb-9866-1b5373186279.jpg)
