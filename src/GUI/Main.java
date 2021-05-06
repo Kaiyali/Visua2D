@@ -37,14 +37,14 @@ public class Main implements ActionListener {
         lengthlbl = new JLabel();
         widthlbl = new JLabel();
 
-        SidePanel.setBackground(new Color(28, 27, 27));
-        SidePanel.setPreferredSize(new Dimension(200, 800));
-        Border redLine= BorderFactory.createLineBorder(new Color(144, 16, 16));
+        SidePanel.setBackground(new Color(51, 51, 51));
+        SidePanel.setPreferredSize(new Dimension(225, 800));
+        Border redLine= BorderFactory.createLineBorder(new Color(0, 0, 0));
         SidePanel.setBorder(redLine);
         Window.add(SidePanel,BorderLayout.WEST);
 
-        BottomPanel.setBackground(new Color(28, 27, 27));
-        BottomPanel.setPreferredSize(new Dimension(200, 150));
+        BottomPanel.setBackground(new Color(51, 51, 51));
+        BottomPanel.setPreferredSize(new Dimension(200, 200));
         BottomPanel.setBorder(redLine);
         Window.add(BottomPanel,BorderLayout.SOUTH);
 
