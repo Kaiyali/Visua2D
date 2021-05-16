@@ -1,5 +1,6 @@
 package src.GUI;
 
+import com.sun.glass.ui.Clipboard;
 import com.sun.scenario.Settings;
 import src.GUI.FrameSystem;
 
@@ -20,6 +21,7 @@ public class Main implements ActionListener {
     public static JPanel ColorPanel;
     private static FrameSystem Window;
     private static JPanel SettingPanel;
+    private static JPanel DimensionPanel;
 
 
     public static void main(String[] args) {
@@ -29,8 +31,8 @@ public class Main implements ActionListener {
     public static void runApplication(){
         Window = new FrameSystem();
         setSidePanel();
-        setLengthInputfld();
         setLengthlbl();
+        setWidthlbl();
         setClearButtonSystem();
     }
     public static void setSidePanel(){
@@ -63,24 +65,25 @@ public class Main implements ActionListener {
         SettingPanel = new JPanel();
         SettingPanel.setBackground(new Color(51, 51, 51));
         SettingPanel.setPreferredSize(new Dimension(120, 120));
-        SettingPanel.setLayout(new GridBagLayout());
+        SettingPanel.setLayout(new GridLayout(1,3));
         BottomPanel.add(SettingPanel);
         BottomPanel.add(SettingPanel, BorderLayout.CENTER);
-
+        setDimensionPanel();
 
     }
-
-
-    public static void setLengthInputfld(){
-        JTextField lengthInputfld = new JTextField(1);
-        lengthInputfld.setBounds(400, 550, 25, 25);
-        SettingPanel.add(lengthInputfld);
-        setWidthInputfld();
+    public static void setDimensionPanel(){
+        DimensionPanel = new JPanel();
+        DimensionPanel.setBackground(new Color(227, 20, 20));
+        DimensionPanel.setLayout(new GridLayout(2,2));
+        SettingPanel.add(DimensionPanel);
+        setCalPanel();
     }
-    public static void setWidthInputfld(){
-        JTextField widthInputfld = new JTextField(1);
-        widthInputfld.setBounds(400, 600, 25, 25);
-        SettingPanel.add(widthInputfld); // changed
+    public static void setCalPanel(){
+        JPanel CalPanel= new JPanel();
+        CalPanel.setBackground(new Color(0, 62, 255));
+        CalPanel.setLayout(new GridLayout(2,2));
+        SettingPanel.add(CalPanel);
+
     }
     public static void setLengthlbl(){
         JLabel lengthlbl = new JLabel();
@@ -88,8 +91,15 @@ public class Main implements ActionListener {
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
         lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
-        SettingPanel.add(lengthlbl);
-        setWidthlbl();
+        DimensionPanel.add(lengthlbl);
+        setLengthInputfld();
+
+    }
+    public static void setLengthInputfld(){
+        JTextField lengthInputfld = new JTextField(1);
+        lengthInputfld.setBounds(400, 550, 25, 25);
+        DimensionPanel.add(lengthInputfld);
+
     }
     public static void setWidthlbl(){
         JLabel widthlbl = new JLabel();
@@ -97,7 +107,13 @@ public class Main implements ActionListener {
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);
         widthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
-        SettingPanel.add(widthlbl);
+        DimensionPanel.add(widthlbl);
+        setWidthInputfld();
+    }
+    public static void setWidthInputfld(){
+        JTextField widthInputfld = new JTextField(1);
+        widthInputfld.setBounds(400, 600, 25, 25);
+        DimensionPanel.add(widthInputfld); // changed
     }
 
     public static void setClearButtonSystem(){
