@@ -35,6 +35,7 @@ public class Main implements ActionListener {
         setWidthlbl();
         setClearButtonSystem();
     }
+    //SidePanel
     public static void setSidePanel(){
         SidePanel = new JPanel();
         SidePanel.setBackground(new Color(51, 51, 51));
@@ -42,7 +43,7 @@ public class Main implements ActionListener {
         Window.add(SidePanel,BorderLayout.WEST);
         setBottomPanel();
     }
-
+    //BottomPanel
     public static void setBottomPanel(){
         BottomPanel = new JPanel();
         BottomPanel.setBackground(new Color(51, 51, 51));
@@ -53,6 +54,8 @@ public class Main implements ActionListener {
         Window.add(BottomPanel,BorderLayout.SOUTH);
         setColorPanel();
     }
+
+    // ColorPalette
     public static void setColorPanel(){
         ColorPanel = new JPanel();
         ColorPanel.setBackground(new Color(50, 48, 48));
@@ -73,10 +76,11 @@ public class Main implements ActionListener {
     }
     public static void setDimensionPanel(){
         DimensionPanel = new JPanel();
-        DimensionPanel.setBackground(new Color(227, 20, 20));
-        DimensionPanel.setLayout(new GridLayout(2,2));
+        DimensionPanel.setBackground(new Color(51, 51, 51));
+        DimensionPanel.setLayout(new GridBagLayout());
         SettingPanel.add(DimensionPanel);
         setCalPanel();
+
     }
     public static void setCalPanel(){
         JPanel CalPanel= new JPanel();
@@ -87,14 +91,16 @@ public class Main implements ActionListener {
     }
     public static void setLengthlbl(){
         JLabel lengthlbl = new JLabel();
+        GridBagConstraints c1 = new GridBagConstraints();
         lengthlbl.setBounds(0,10,50,50); // working on
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
         lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
-        DimensionPanel.add(lengthlbl);
+        c1.gridx=0;c1.gridy=0;DimensionPanel.add(lengthlbl, c1);
         setLengthInputfld();
 
     }
+
     public static void setLengthInputfld(){
         JTextField lengthInputfld = new JTextField(1);
         lengthInputfld.setBounds(400, 550, 25, 25);
@@ -107,6 +113,7 @@ public class Main implements ActionListener {
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);
         widthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
+        widthlbl.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0),2,true));
         DimensionPanel.add(widthlbl);
         setWidthInputfld();
     }
@@ -116,9 +123,11 @@ public class Main implements ActionListener {
         DimensionPanel.add(widthInputfld); // changed
     }
 
+
+
     public static void setClearButtonSystem(){
         ClearButton buttonSystem = new ClearButton();
-        buttonSystem.setBounds(0,10,50,50); // working on
+        buttonSystem.setBounds(0,50,50,50); // working on
         SidePanel.add(buttonSystem);
         finalStatement();
     }
