@@ -18,14 +18,6 @@ public class Main implements ActionListener {
     public static JPanel BottomPanel;
     public static JPanel ColorPanel;
     private static FrameSystem Window;
-    private static JTextField lengthInputfld;
-    private static JTextField widthInputfld;
-    private static JLabel lengthlbl;
-    private static JLabel widthlbl;
-    private static ClearButton ButtonSystem;
-
-
-
 
 
     public static void main(String[] args) {
@@ -55,7 +47,8 @@ public class Main implements ActionListener {
         BottomPanel.setPreferredSize(new Dimension(200, 200));
         Border redLine= BorderFactory.createLineBorder(new Color(0, 0, 0));
         BottomPanel.setBorder(redLine);
-        BottomPanel.setLayout(new GridBagLayout()); // here is where the layout was set
+        GridBagLayout gcon = new GridBagLayout();
+        BottomPanel.setLayout(gcon); // here is where the layout was set
         Window.add(BottomPanel,BorderLayout.SOUTH);
         setColorPanel();
     }
@@ -64,27 +57,31 @@ public class Main implements ActionListener {
         ColorPanel.setBackground(new Color(217, 23, 23));
         ColorPanel.setPreferredSize(new Dimension(225, 200));
         BottomPanel.add(ColorPanel);
+        GridBagLayout gcon = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.weightx = 0;
-        gbc.weighty = 1;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 1;
         gbc.fill = GridBagConstraints.VERTICAL;
-        BottomPanel.add(ColorPanel, gbc);
+        gbc.weightx = 1;        // I don't understand what is wrong in this area.
+        gbc.weighty = 1;
+        gcon.setConstraints(ColorPanel, gbc);
+        BottomPanel.add(ColorPanel);
     }
     public static void setLengthInputfld(){
-        lengthInputfld = new JTextField(1);
+        JTextField lengthInputfld = new JTextField(1);
         lengthInputfld.setBounds(400, 550, 25, 25);
         BottomPanel.add(lengthInputfld);
         setWidthInputfld();
     }
     public static void setWidthInputfld(){
-        widthInputfld = new JTextField(1);
+        JTextField widthInputfld = new JTextField(1);
         widthInputfld.setBounds(400, 600, 25, 25);
         BottomPanel.add(widthInputfld); // changed
     }
     public static void setLengthlbl(){
-        lengthlbl = new JLabel();
+        JLabel lengthlbl = new JLabel();
         lengthlbl.setBounds(0,10,50,50); // working on
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
@@ -93,7 +90,7 @@ public class Main implements ActionListener {
         setWidthlbl();
     }
     public static void setWidthlbl(){
-        widthlbl = new JLabel();
+        JLabel widthlbl = new JLabel();
         widthlbl.setBounds(10,100,50,50); // working on
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);
@@ -101,9 +98,9 @@ public class Main implements ActionListener {
         BottomPanel.add(widthlbl);
     }
     public static void setClearButtonSystem(){
-        ButtonSystem = new ClearButton();
-        ButtonSystem.setBounds(0,10,50,50); // working on
-        SidePanel.add(ButtonSystem);
+        ClearButton buttonSystem = new ClearButton();
+        buttonSystem.setBounds(0,10,50,50); // working on
+        SidePanel.add(buttonSystem);
         finalStatement();
     }
     @Override
