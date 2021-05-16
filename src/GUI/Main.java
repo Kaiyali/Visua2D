@@ -2,6 +2,7 @@ package src.GUI;
 
 import src.GUI.ClearButton;
 import src.GUI.FrameSystem;
+import src.Shapes.Triangle;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -41,7 +42,7 @@ public class Main implements ActionListener {
         setSidePanel();
         setLengthlbl();
         setWidthlbl();
-        setClearButtonSystem();
+        setSquareButton();
     }
 
     public void setSidePanel(){
@@ -215,12 +216,43 @@ public class Main implements ActionListener {
         WidthPanel.add(widthInputfld); // changed
     }
 
-    public void setClearButtonSystem(){
-        ClearButton buttonSystem = new ClearButton();
-        buttonSystem.setPreferredSize(new Dimension(50,50));
 
-        SidePanel.add(buttonSystem);
+    //this are filler for the images that will be added to the buttons
+    public void setSquareButton(){
+        ClearButton Squarebutton = new ClearButton();
+        Squarebutton.setPreferredSize(new Dimension(150,50));
+        Squarebutton.setBackground(new Color(36, 201, 176));
+        Squarebutton.setText("Square");
+        SidePanel.add(Squarebutton);
+        setCircleButton();
+        setRectangleButton();
+        setTriangleButton();
         finalStatement();
+    }
+
+    public void setTriangleButton(){
+        ClearButton Trianglebutton = new ClearButton();
+        Trianglebutton.setPreferredSize(new Dimension(150,50));
+        Trianglebutton.setBackground(new Color(36, 201, 176));
+        Trianglebutton.setText("Triangle");
+        SidePanel.add(Trianglebutton);
+    }
+
+    public void setRectangleButton(){
+        ClearButton Rectanglebutton = new ClearButton();
+        Rectanglebutton.setPreferredSize(new Dimension(150,50));
+        Rectanglebutton.setBackground(new Color(36, 201, 176));
+        Rectanglebutton.setText("Rectangle");
+        SidePanel.add(Rectanglebutton);
+
+    }
+
+    public void setCircleButton(){
+        ClearButton CircleButton = new ClearButton();
+        CircleButton.setPreferredSize(new Dimension(150,50));
+        CircleButton.setBackground(new Color(36, 201, 176));
+        CircleButton.setText("Circle");
+        SidePanel.add(CircleButton);
     }
 
     public void addCalcAreaBtn() {
