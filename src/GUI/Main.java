@@ -1,5 +1,6 @@
 package src.GUI;
 
+import com.sun.scenario.Settings;
 import src.GUI.FrameSystem;
 
 import javax.swing.*;
@@ -18,6 +19,7 @@ public class Main implements ActionListener {
     public static JPanel BottomPanel;
     public static JPanel ColorPanel;
     private static FrameSystem Window;
+    private static JPanel SettingPanel;
 
 
     public static void main(String[] args) {
@@ -35,8 +37,6 @@ public class Main implements ActionListener {
         SidePanel = new JPanel();
         SidePanel.setBackground(new Color(51, 51, 51));
         SidePanel.setPreferredSize(new Dimension(225, 800));
-        Border redLine= BorderFactory.createLineBorder(new Color(0, 0, 0));
-        SidePanel.setBorder(redLine);
         Window.add(SidePanel,BorderLayout.WEST);
         setBottomPanel();
     }
@@ -47,38 +47,40 @@ public class Main implements ActionListener {
         BottomPanel.setPreferredSize(new Dimension(200, 200));
         Border redLine= BorderFactory.createLineBorder(new Color(0, 0, 0));
         BottomPanel.setBorder(redLine);
-        GridBagLayout gcon = new GridBagLayout();
-        BottomPanel.setLayout(gcon); // here is where the layout was set
+        BottomPanel.setLayout(new BorderLayout()); // here is where the layout was set
         Window.add(BottomPanel,BorderLayout.SOUTH);
         setColorPanel();
     }
     public static void setColorPanel(){
         ColorPanel = new JPanel();
-        ColorPanel.setBackground(new Color(217, 23, 23));
+        ColorPanel.setBackground(new Color(50, 48, 48));
         ColorPanel.setPreferredSize(new Dimension(225, 200));
         BottomPanel.add(ColorPanel);
-        GridBagLayout gcon = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.gridwidth = 2;
-        gbc.gridheight = 1;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        gbc.weightx = 1;        // I don't understand what is wrong in this area.
-        gbc.weighty = 1;
-        gcon.setConstraints(ColorPanel, gbc);
-        BottomPanel.add(ColorPanel);
+        BottomPanel.add(ColorPanel, BorderLayout.WEST);
+        setSettingPanel();
     }
+    public static void setSettingPanel(){
+        SettingPanel = new JPanel();
+        SettingPanel.setBackground(new Color(51, 51, 51));
+        SettingPanel.setPreferredSize(new Dimension(120, 120));
+        SettingPanel.setLayout(new GridBagLayout());
+        BottomPanel.add(SettingPanel);
+        BottomPanel.add(SettingPanel, BorderLayout.CENTER);
+
+
+    }
+
+
     public static void setLengthInputfld(){
         JTextField lengthInputfld = new JTextField(1);
         lengthInputfld.setBounds(400, 550, 25, 25);
-        BottomPanel.add(lengthInputfld);
+        SettingPanel.add(lengthInputfld);
         setWidthInputfld();
     }
     public static void setWidthInputfld(){
         JTextField widthInputfld = new JTextField(1);
         widthInputfld.setBounds(400, 600, 25, 25);
-        BottomPanel.add(widthInputfld); // changed
+        SettingPanel.add(widthInputfld); // changed
     }
     public static void setLengthlbl(){
         JLabel lengthlbl = new JLabel();
@@ -86,7 +88,7 @@ public class Main implements ActionListener {
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
         lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
-        BottomPanel.add(lengthlbl);
+        SettingPanel.add(lengthlbl);
         setWidthlbl();
     }
     public static void setWidthlbl(){
@@ -95,8 +97,9 @@ public class Main implements ActionListener {
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);
         widthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,20));
-        BottomPanel.add(widthlbl);
+        SettingPanel.add(widthlbl);
     }
+
     public static void setClearButtonSystem(){
         ClearButton buttonSystem = new ClearButton();
         buttonSystem.setBounds(0,10,50,50); // working on
