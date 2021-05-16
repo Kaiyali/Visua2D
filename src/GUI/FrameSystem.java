@@ -9,7 +9,7 @@ public class FrameSystem extends JFrame {
         ImageIcon img = new ImageIcon("C:\\Users\\Owner\\IdeaProjects\\" +
                 "Master Calculator\\src\\Master-Calculator.jpg");
         this.setIconImage(img.getImage());
-        this.setSize(950,850);
+        this.setSize(1320,820);
         this.setTitle("GeoMath 2D/3D"); // working Title
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(new BorderLayout());

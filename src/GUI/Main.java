@@ -1,4 +1,7 @@
-package com.GUI;
+package src.GUI;
+
+import src.GUI.ClearButton;
+import src.GUI.FrameSystem;
 
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
@@ -12,7 +15,7 @@ import java.awt.event.ActionListener;
  * Project Name: Master 2D Calculator
  * Author: ARCHISMAN NATH and DANIEL KAIYALI on 5/1/2021 in 12:08 PM
  */
-public class Run implements ActionListener {
+public class Main implements ActionListener {
 
     private final JPanel SidePanel = new JPanel();
     public JPanel BottomPanel = new JPanel();
@@ -20,14 +23,17 @@ public class Run implements ActionListener {
     private final FrameSystem Window = new FrameSystem();
     private final JPanel SettingPanel = new JPanel();
     private final JPanel DimensionPanel = new JPanel();
-    private final JPanel CalPanel= new JPanel();
+    private final JPanel CalPanel = new JPanel();
+    private final JPanel LengthPanel = new JPanel();
+    private final JPanel WidthPanel = new JPanel();
     private final JTextField calculateAreaTxt = new JTextField();
     private final JTextField calculatePCTxt = new JTextField();
     private final JButton[] calcButtons = {new JButton("Calculate Area"), new JButton("Calculate P/C")};
 
 
+
     public static void main(String[] args) {
-        Run run = new Run();
+        Main run = new Main();
         run.runApplication();
     }
 
@@ -41,6 +47,7 @@ public class Run implements ActionListener {
     public void setSidePanel(){
         SidePanel.setBackground(new Color(51, 51, 51));
         SidePanel.setPreferredSize(new Dimension(225, 800));
+        SidePanel.setLayout(new FlowLayout());
         Window.add(SidePanel,BorderLayout.WEST);
         setBottomPanel();
     }
@@ -58,24 +65,106 @@ public class Run implements ActionListener {
     public void setColorPanel(){
         ColorPanel.setBackground(new Color(50, 48, 48));
         ColorPanel.setPreferredSize(new Dimension(225, 200));
+        ColorPanel.setLayout(new FlowLayout());
         BottomPanel.add(ColorPanel);
         BottomPanel.add(ColorPanel, BorderLayout.WEST);
+        setColorSetting();
+    }
+
+    public void setColorSetting(){
+        ClearButton buttonRed = new ClearButton();
+        ClearButton buttonYellow = new ClearButton();
+        ClearButton buttonGreen = new ClearButton();
+        ClearButton buttonPurple = new ClearButton();
+        ClearButton buttonBlue = new ClearButton();
+        ClearButton buttonPink = new ClearButton();
+        ClearButton buttonLightBlue = new ClearButton();
+        ClearButton buttonOrange = new ClearButton();
+        ClearButton buttonWhite = new ClearButton();
+        ClearButton buttonBitterSweet = new ClearButton();
+        ClearButton buttonLavender = new ClearButton();
+        ClearButton buttonRose = new ClearButton();
+
+        buttonRed.setBackground(new Color(213, 27, 27));
+        buttonRed.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonRed);
+
+        buttonWhite.setBackground(new Color(255, 255, 255));
+        buttonWhite.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonWhite);
+
+        buttonYellow.setBackground(new Color(255, 229, 0));
+        buttonYellow.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonYellow);
+
+        buttonLightBlue.setBackground(new Color(25, 212, 168));
+        buttonLightBlue.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonLightBlue);
+
+        buttonOrange.setBackground(new Color(220, 129, 14));
+        buttonOrange.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonOrange);
+
+        buttonPink.setBackground(new Color(255, 0, 186));
+        buttonPink.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonPink);
+
+        buttonBlue.setBackground(new Color(32, 99, 206));
+        buttonBlue.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonBlue);
+
+        buttonPurple.setBackground(new Color(148, 9, 234));
+        buttonPurple.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonPurple);
+
+        buttonGreen.setBackground(new Color(112, 217, 30));
+        buttonGreen.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonGreen);
+
+        buttonBitterSweet.setBackground(new Color(254, 111, 94));
+        buttonBitterSweet.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonBitterSweet);
+
+        buttonLavender.setBackground(new Color(244, 187, 255));
+        buttonLavender.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonLavender);
+
+        buttonRose.setBackground(new Color(255, 85, 163));
+        buttonRose.setPreferredSize(new Dimension(50,50));
+        ColorPanel.add(buttonRose);
         setSettingPanel();
     }
 
     public void setSettingPanel(){
         SettingPanel.setPreferredSize(new Dimension(120, 120));
         SettingPanel.setLayout(new GridLayout(1,3));
+
         BottomPanel.add(SettingPanel, BorderLayout.CENTER);
         setDimensionPanel();
 
     }
 
     public void setDimensionPanel(){
-        DimensionPanel.setBackground(new Color(227, 20, 20));
-        DimensionPanel.setLayout(new GridLayout(2,2, 5,5));
-        DimensionPanel.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
+        DimensionPanel.setBackground(new Color(0, 0, 0));
+        DimensionPanel.setLayout(new GridLayout(2,1, 5,5));
+        DimensionPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
         SettingPanel.add(DimensionPanel);
+        setLengthPanel();
+    }
+
+    public void setLengthPanel(){
+        LengthPanel.setBackground(new Color(0, 0, 0));
+        LengthPanel.setLayout(new FlowLayout());
+        LengthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        DimensionPanel.add(LengthPanel);
+        setWidthPanel();
+    }
+
+    public void setWidthPanel(){
+        WidthPanel.setBackground(new Color(0, 0, 0));
+        WidthPanel.setLayout(new FlowLayout());
+        WidthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        DimensionPanel.add(WidthPanel);
         setCalPanel();
     }
 
@@ -92,38 +181,44 @@ public class Run implements ActionListener {
         lengthlbl.setBackground(Color.BLACK);
         lengthlbl.setText("Length");
         lengthlbl.setForeground(Color.WHITE);
-        lengthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,40));
+        lengthlbl.setFont(new Font ("Asap", Font.PLAIN,32));
         lengthlbl.setHorizontalAlignment(SwingConstants.CENTER);
         lengthlbl.setVerticalAlignment(SwingConstants.CENTER);
-        DimensionPanel.add(lengthlbl);
+        LengthPanel.add(lengthlbl);
         setLengthInputfld();
-
     }
     public void setLengthInputfld(){
-        JTextField lengthInputfld = new JTextField(1);
-        lengthInputfld.setBounds(400, 550, 25, 25);
-        DimensionPanel.add(lengthInputfld);
+        JTextField lengthInputfld = new JTextField();
+        lengthInputfld.setPreferredSize(new Dimension(250,40));
+        lengthInputfld.setBorder(BorderFactory.createLineBorder(new Color(201, 197, 197),1));
+        lengthInputfld.setFont(new Font("Consoles",Font.PLAIN,32));
+        lengthInputfld.setCaretColor(new Color(5, 153, 179));
+        LengthPanel.add(lengthInputfld);
     }
     public void setWidthlbl(){
         JLabel widthlbl = new JLabel();
         widthlbl.setBounds(10,100,50,50); // working on
         widthlbl.setText("Width");
         widthlbl.setForeground(Color.WHITE);
-        widthlbl.setFont(new Font ("Cooper Black", Font.PLAIN,40));
+        widthlbl.setFont(new Font ("Asap", Font.PLAIN,32));
         widthlbl.setHorizontalAlignment(SwingConstants.CENTER);
         widthlbl.setVerticalAlignment(SwingConstants.CENTER);
-        DimensionPanel.add(widthlbl);
+        WidthPanel.add(widthlbl);
         setWidthInputfld();
     }
     public void setWidthInputfld(){
-        JTextField widthInputfld = new JTextField(1);
-        widthInputfld.setBounds(400, 600, 25, 25);
-        DimensionPanel.add(widthInputfld); // changed
+        JTextField widthInputfld = new JTextField();
+        widthInputfld.setPreferredSize(new Dimension(250,40));
+        widthInputfld.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0),1));
+        widthInputfld.setFont(new Font("Consoles",Font.PLAIN,30));
+        widthInputfld.setCaretColor(new Color(5, 153, 179));
+        WidthPanel.add(widthInputfld); // changed
     }
 
     public void setClearButtonSystem(){
         ClearButton buttonSystem = new ClearButton();
-        buttonSystem.setBounds(0,10,50,50); // working on
+        buttonSystem.setPreferredSize(new Dimension(50,50));
+
         SidePanel.add(buttonSystem);
         finalStatement();
     }
@@ -149,7 +244,6 @@ public class Run implements ActionListener {
         calcButtons[1].setFocusPainted(false);
         calcButtons[1].setBorderPainted(true);
         calcButtons[1].setFont(new Font("Cooper Black", Font.BOLD, 30));
-
         CalPanel.add(calcButtons[1]);
     }
 
@@ -173,3 +267,8 @@ public class Run implements ActionListener {
     }
 
 }
+
+
+
+
+
