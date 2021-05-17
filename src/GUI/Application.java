@@ -1,9 +1,5 @@
 package src.GUI;
 
-import src.GUI.ClearButton;
-import src.GUI.FrameSystem;
-import src.Shapes.Triangle;
-
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
@@ -11,16 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Automatic Generation Project - Author
- * Project Name: Master 2D Calculator
- * Author: ARCHISMAN NATH and DANIEL KAIYALI on 5/1/2021 in 12:08 PM
- */
-public class Main implements ActionListener {
-
+public class Application implements ActionListener {
     private final JPanel SidePanel = new JPanel();
     public JPanel BottomPanel = new JPanel();
     public JPanel ColorPanel = new JPanel();
+    public JPanel ShapePanel = new JPanel();
     private final FrameSystem Window = new FrameSystem();
     private final JPanel SettingPanel = new JPanel();
     private final JPanel DimensionPanel = new JPanel();
@@ -31,19 +22,34 @@ public class Main implements ActionListener {
     private final JTextField calculatePCTxt = new JTextField();
     private final JButton[] calcButtons = {new JButton("Calculate Area"), new JButton("Calculate P/C")};
     public ClearButton CalculatorButton = new ClearButton();
+    public ClearButton buttonRed = new ClearButton();
+    public ClearButton buttonYellow = new ClearButton();
+    public ClearButton buttonGreen = new ClearButton();
+    public ClearButton buttonPurple = new ClearButton();
+    public ClearButton buttonBlue = new ClearButton();
+    public ClearButton buttonPink = new ClearButton();
+    public ClearButton buttonLightBlue = new ClearButton();
+    public ClearButton buttonOrange = new ClearButton();
+    public ClearButton buttonWhite = new ClearButton();
+    public ClearButton buttonBitterSweet = new ClearButton();
+    public ClearButton buttonLavender = new ClearButton();
+    public ClearButton buttonRose = new ClearButton();
 
 
-
-    public static void main(String[] args) {
-        Main run = new Main();
-        run.runApplication();
-    }
 
     public void runApplication(){
+        setShapePanel();
         setSidePanel();
         setLengthlbl();
         setWidthlbl();
         setSquareButton();
+    }
+
+    public void setShapePanel(){
+        ShapePanel.setBackground(new Color(214, 214, 214));
+        ShapePanel.setPreferredSize(new Dimension(225, 800));
+        ShapePanel.setLayout(null);
+        Window.add(ShapePanel,BorderLayout.CENTER);
     }
 
     public void setSidePanel(){
@@ -74,18 +80,7 @@ public class Main implements ActionListener {
     }
 
     public void setColorSetting(){
-        ClearButton buttonRed = new ClearButton();
-        ClearButton buttonYellow = new ClearButton();
-        ClearButton buttonGreen = new ClearButton();
-        ClearButton buttonPurple = new ClearButton();
-        ClearButton buttonBlue = new ClearButton();
-        ClearButton buttonPink = new ClearButton();
-        ClearButton buttonLightBlue = new ClearButton();
-        ClearButton buttonOrange = new ClearButton();
-        ClearButton buttonWhite = new ClearButton();
-        ClearButton buttonBitterSweet = new ClearButton();
-        ClearButton buttonLavender = new ClearButton();
-        ClearButton buttonRose = new ClearButton();
+
 
         buttonRed.setBackground(new Color(213, 27, 27));
         buttonRed.setPreferredSize(new Dimension(50,50));
@@ -316,8 +311,3 @@ public class Main implements ActionListener {
     }
 
 }
-
-
-
-
-
