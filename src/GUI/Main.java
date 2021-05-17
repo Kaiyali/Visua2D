@@ -30,6 +30,7 @@ public class Main implements ActionListener {
     private final JTextField calculateAreaTxt = new JTextField();
     private final JTextField calculatePCTxt = new JTextField();
     private final JButton[] calcButtons = {new JButton("Calculate Area"), new JButton("Calculate P/C")};
+    public ClearButton CalculatorButton = new ClearButton();
 
 
 
@@ -227,6 +228,7 @@ public class Main implements ActionListener {
         setCircleButton();
         setRectangleButton();
         setTriangleButton();
+        setCalulatorFrame();
         finalStatement();
     }
 
@@ -254,6 +256,24 @@ public class Main implements ActionListener {
         CircleButton.setText("Circle");
         SidePanel.add(CircleButton);
     }
+
+    public void setCalulatorFrame(){
+        CalculatorButton.setPreferredSize(new Dimension(150,50));
+        CalculatorButton.setBackground(new Color(229, 11, 50));
+        CalculatorButton.setText("Calculator");
+        SidePanel.add(CalculatorButton);
+    }
+    /*
+    Trying to connect this two files together
+    Via using the actionPerformed method
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==CalculatorButton){
+            Calculator calculator = new Calculator();
+        }
+    }
+
 
     public void addCalcAreaBtn() {
         calcButtons[0].setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -290,10 +310,7 @@ public class Main implements ActionListener {
         calculatePCTxt.setEditable(false);
         CalPanel.add(calculatePCTxt);
     }
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // do not remove this method
-    }
+
     public void finalStatement(){
         Window.setVisible(true);
     }
