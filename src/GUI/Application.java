@@ -268,6 +268,11 @@ public class Application implements ActionListener {
             Calculator calculator = new Calculator();
         }
     }
+    public void changeColor(ActionEvent e){
+        // this is where the shapes are going to
+        // change color
+    }
+
 
 
     public void addCalcAreaBtn() {
