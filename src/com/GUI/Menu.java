@@ -50,4 +50,8 @@ public class Menu extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+    
+    /*
+    NOT FINISHED YET STILL WORKING.
+    */
 }
