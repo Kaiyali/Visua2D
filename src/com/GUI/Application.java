@@ -8,18 +8,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Application implements ActionListener {
+
+    //WINDOW FRAME
+    private final FrameSystem Window = new FrameSystem();
+
+    //PANELS
     private final JPanel SidePanel = new JPanel();
     public JPanel BottomPanel = new JPanel();
     public JPanel ColorPanel = new JPanel();
     public JPanel ShapePanel = new JPanel();
-    private final FrameSystem Window = new FrameSystem();
     private final JPanel SettingPanel = new JPanel();
     private final JPanel DimensionPanel = new JPanel();
     private final JPanel CalPanel = new JPanel();
     private final JPanel LengthPanel = new JPanel();
     private final JPanel WidthPanel = new JPanel();
+
+
+
+    //TEXT FIELDS
     private final JTextField calculateAreaTxt = new JTextField();
     private final JTextField calculatePCTxt = new JTextField();
+
+
+
+    //BUTTONS
     private final JButton[] calcButtons = {new JButton("Calculate Area"), new JButton("Calculate P/C")};
     public ClearButton CalculatorButton = new ClearButton();
     public ClearButton buttonRed = new ClearButton();
@@ -37,6 +49,17 @@ public class Application implements ActionListener {
 
 
 
+
+
+    //-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+    //----------------------------------------------------------------------
+
+    //RUNNER
     public void runApplication(){
         setShapePanel();
         setSidePanel();
@@ -45,21 +68,13 @@ public class Application implements ActionListener {
         setSquareButton();
     }
 
-    public void setShapePanel(){
-        ShapePanel.setBackground(new Color(214, 214, 214));
-        ShapePanel.setPreferredSize(new Dimension(225, 800));
-        ShapePanel.setLayout(null);
-        Window.add(ShapePanel,BorderLayout.CENTER);
-    }
 
-    public void setSidePanel(){
-        SidePanel.setBackground(new Color(51, 51, 51));
-        SidePanel.setPreferredSize(new Dimension(225, 800));
-        SidePanel.setLayout(new FlowLayout());
-        Window.add(SidePanel,BorderLayout.WEST);
-        setBottomPanel();
-    }
+    //---------------------------------------------------------------------
 
+
+
+
+    //BOTTOM PANEL GUI
     public void setBottomPanel(){
         BottomPanel.setBackground(new Color(51, 51, 51));
         BottomPanel.setPreferredSize(new Dimension(200, 200));
@@ -70,6 +85,66 @@ public class Application implements ActionListener {
         setColorPanel();
     }
 
+
+
+    //----------------------------------------------------------------------
+
+
+
+
+    //ASSET PANELS FOR BOTTOM PANEL
+    public void setSettingPanel(){
+        SettingPanel.setPreferredSize(new Dimension(120, 120));
+        SettingPanel.setLayout(new GridLayout(1,3));
+
+        BottomPanel.add(SettingPanel, BorderLayout.CENTER);
+        setDimensionPanel();
+
+    }
+
+    public void setDimensionPanel(){
+        DimensionPanel.setBackground(new Color(0, 0, 0));
+        DimensionPanel.setLayout(new GridLayout(2,1, 5,5));
+        DimensionPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        SettingPanel.add(DimensionPanel);
+        setLengthPanel();
+    }
+
+    public void setLengthPanel(){
+        LengthPanel.setBackground(new Color(0, 0, 0));
+        LengthPanel.setLayout(new FlowLayout());
+        LengthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        DimensionPanel.add(LengthPanel);
+        setWidthPanel();
+    }
+
+    public void setWidthPanel(){
+        WidthPanel.setBackground(new Color(0, 0, 0));
+        WidthPanel.setLayout(new FlowLayout());
+        WidthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+        DimensionPanel.add(WidthPanel);
+        setCalPanel();
+    }
+
+    public void setCalPanel(){
+        CalPanel.setBackground(Color.black.brighter());
+        CalPanel.setLayout(new GridLayout(2,2, 2, 2));
+        SettingPanel.add(CalPanel);
+        addCalcAreaBtn();
+    }
+
+
+
+
+
+    //------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+    //COLOR PANEL GUI
     public void setColorPanel(){
         ColorPanel.setBackground(new Color(50, 48, 48));
         ColorPanel.setPreferredSize(new Dimension(225, 200));
@@ -132,46 +207,14 @@ public class Application implements ActionListener {
         setSettingPanel();
     }
 
-    public void setSettingPanel(){
-        SettingPanel.setPreferredSize(new Dimension(120, 120));
-        SettingPanel.setLayout(new GridLayout(1,3));
 
-        BottomPanel.add(SettingPanel, BorderLayout.CENTER);
-        setDimensionPanel();
 
-    }
+    //--------------------------------------------------------------------------------------
 
-    public void setDimensionPanel(){
-        DimensionPanel.setBackground(new Color(0, 0, 0));
-        DimensionPanel.setLayout(new GridLayout(2,1, 5,5));
-        DimensionPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        SettingPanel.add(DimensionPanel);
-        setLengthPanel();
-    }
 
-    public void setLengthPanel(){
-        LengthPanel.setBackground(new Color(0, 0, 0));
-        LengthPanel.setLayout(new FlowLayout());
-        LengthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        DimensionPanel.add(LengthPanel);
-        setWidthPanel();
-    }
 
-    public void setWidthPanel(){
-        WidthPanel.setBackground(new Color(0, 0, 0));
-        WidthPanel.setLayout(new FlowLayout());
-        WidthPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-        DimensionPanel.add(WidthPanel);
-        setCalPanel();
-    }
 
-    public void setCalPanel(){
-        CalPanel.setBackground(Color.black.brighter());
-        CalPanel.setLayout(new GridLayout(2,2, 2, 2));
-        SettingPanel.add(CalPanel);
-        addCalcAreaBtn();
-    }
-
+    //BOTTOM PANEL GUI LABELS AND INPUT FIELDS
     public void setLengthlbl(){
         JLabel lengthlbl = new JLabel();
         lengthlbl.setBounds(0,10,50,50); // working on
@@ -184,6 +227,8 @@ public class Application implements ActionListener {
         LengthPanel.add(lengthlbl);
         setLengthInputfld();
     }
+
+
     public void setLengthInputfld(){
         JTextField lengthInputfld = new JTextField();
         lengthInputfld.setPreferredSize(new Dimension(250,40));
@@ -192,6 +237,8 @@ public class Application implements ActionListener {
         lengthInputfld.setCaretColor(new Color(5, 153, 179));
         LengthPanel.add(lengthInputfld);
     }
+
+
     public void setWidthlbl(){
         JLabel widthlbl = new JLabel();
         widthlbl.setBounds(10,100,50,50); // working on
@@ -203,6 +250,9 @@ public class Application implements ActionListener {
         WidthPanel.add(widthlbl);
         setWidthInputfld();
     }
+
+
+
     public void setWidthInputfld(){
         JTextField widthInputfld = new JTextField();
         widthInputfld.setPreferredSize(new Dimension(250,40));
@@ -212,6 +262,28 @@ public class Application implements ActionListener {
         WidthPanel.add(widthInputfld); // changed
     }
 
+
+
+
+
+
+    //--------------------------------------------------------------------------------------
+
+    //SIDE PANEL SETUP
+    public void setShapePanel(){
+        ShapePanel.setBackground(new Color(214, 214, 214));
+        ShapePanel.setPreferredSize(new Dimension(225, 800));
+        ShapePanel.setLayout(null);
+        Window.add(ShapePanel,BorderLayout.CENTER);
+    }
+
+    public void setSidePanel(){
+        SidePanel.setBackground(new Color(51, 51, 51));
+        SidePanel.setPreferredSize(new Dimension(225, 800));
+        SidePanel.setLayout(new FlowLayout());
+        Window.add(SidePanel,BorderLayout.WEST);
+        setBottomPanel();
+    }
 
     //this are filler for the images that will be added to the buttons
     public void setSquareButton(){
@@ -260,25 +332,15 @@ public class Application implements ActionListener {
         CalculatorButton.setText("Calculator");
         SidePanel.add(CalculatorButton);
     }
-    /*
-    Trying to connect this two files together
-    Via using the actionPerformed method
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == CalculatorButton) {
-            Calculator calc = new Calculator();
-            calc.frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-        }
-    }
-
-    public void changeColor(ActionEvent e){
-        // this is where the shapes are going to
-        // change color
-    }
 
 
 
+    //------------------------------------------------------------------------------------
+
+
+
+
+    //BUTTONS SETUP FOR CALCULATIONS
     public void addCalcAreaBtn() {
         calcButtons[0].setBorder(BorderFactory.createLineBorder(Color.BLACK));
         calcButtons[0].setFont(new Font("Cooper Black", Font.BOLD, 30));
@@ -313,6 +375,33 @@ public class Application implements ActionListener {
         calculatePCTxt.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
         calculatePCTxt.setEditable(false);
         CalPanel.add(calculatePCTxt);
+    }
+
+
+
+
+
+    //-----------------------------------------------------------------------------
+
+
+
+
+    //OTHER VARIOUS ASSETS
+    /*
+    Trying to connect this two files together
+    Via using the actionPerformed method
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == CalculatorButton) {
+            Calculator calc = new Calculator();
+            calc.frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        }
+    }
+
+    public void changeColor(ActionEvent e){
+        // this is where the shapes are going to
+        // change color
     }
 
     public void finalStatement(){
