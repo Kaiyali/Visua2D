@@ -297,6 +297,12 @@ public class BottomGUI extends JPanel implements ActionListener {
                 lengthInputfld.setEditable(true);
                 widthInputfld.setEditable(true);
             }
+            //TODO Clear button
+            if(e.getSource() == clearButton ){
+                AreaInputfld.setText("");
+                lengthInputfld.setText("");
+                widthInputfld.setText("");
+            }
         }
     }
 
@@ -317,9 +323,15 @@ public class BottomGUI extends JPanel implements ActionListener {
         UnitLabel.setForeground(Color.WHITE);
         UnitLabel.setFont(new Font("Tahoma", Font.BOLD,  16));
         CalcAreaPanel.add(UnitLabel);
+        setClearButton();
     }
 
+
     public void setClearButton() {
+        clearButton.setBounds(523, 10, 120, 20);
+        clearButton.setText("Clear");
+        clearButton.addActionListener(this);
+        CalcPCPanel.add(clearButton);
     }
 
     /*

@@ -1,11 +1,11 @@
-package Aegean2DMath.GUI.Base.SystemSetup;
+package Aegean2DMath.GUI.Base.BaseShape;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BaseCircle implements ActionListener {
-    JFrame Circleframe =  new JFrame();
+    public JFrame Circleframe =  new JFrame();
 
     public BaseCircle(){
         Circleframe.setSize(420, 550);
