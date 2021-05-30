@@ -17,6 +17,10 @@ public class SideGUI extends JPanel implements ActionListener {
 
 
     private final JButton CalculatorButton = new ClearButton();
+    private final ClearButton CircleButton = new ClearButton();
+    private final ClearButton Squarebutton = new ClearButton();
+    private final ClearButton Trianglebutton = new ClearButton();
+    private final ClearButton Rectanglebutton = new ClearButton();
 
     public SideGUI() {
         this.setBackground(new Color(51, 51, 51));
@@ -26,7 +30,7 @@ public class SideGUI extends JPanel implements ActionListener {
     }
 
     public void setSquareButton(){
-        ClearButton Squarebutton = new ClearButton();
+
         Squarebutton.setPreferredSize(new Dimension(150,50));
         Squarebutton.setBackground(new Color(255, 181, 181, 255));
         Squarebutton.setText("SQUARE");
@@ -40,7 +44,7 @@ public class SideGUI extends JPanel implements ActionListener {
     }
 
     public void setTriangleButton(){
-        ClearButton Trianglebutton = new ClearButton();
+
         Trianglebutton.setPreferredSize(new Dimension(150,50));
         Trianglebutton.setBackground(new Color(255, 181, 181, 255));
         Trianglebutton.setText("TRIANGLE");
@@ -50,7 +54,7 @@ public class SideGUI extends JPanel implements ActionListener {
     }
 
     public void setRectangleButton(){
-        ClearButton Rectanglebutton = new ClearButton();
+
         Rectanglebutton.setPreferredSize(new Dimension(150,50));
         Rectanglebutton.setBackground(new Color(255, 181, 181, 255));
         Rectanglebutton.setText("RECTANGLE");
@@ -61,12 +65,13 @@ public class SideGUI extends JPanel implements ActionListener {
     }
 
     public void setCircleButton(){
-        ClearButton CircleButton = new ClearButton();
+
         CircleButton.setPreferredSize(new Dimension(150,50));
         CircleButton.setBackground(new Color(255, 181, 181, 255));
         CircleButton.setText("CIRCLE");
         CircleButton.setFont(new Font("Segoe UI", Font.BOLD, 22));
         CircleButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        CircleButton.addActionListener(this);
         this.add(CircleButton);
     }
 
@@ -83,14 +88,13 @@ public class SideGUI extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == CalculatorButton) {
+        if (e.getSource() == CalculatorButton) {
             BaseCalc calc = new BaseCalc();
             calc.frame.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
         }
+        if (e.getSource() == CircleButton) {
+            BaseCircle circle = new BaseCircle();
+            circle.Circleframe.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
+        }
     }
-
-    public void changeColor(ActionEvent e){
-
-    }
-
 }

@@ -14,7 +14,7 @@ public class BaseCalc implements ActionListener {
     JButton decButton, equButton, delButton, clrButton, negButton;
     JPanel panel;
 
-    Font myFont = new Font("Ink Free",Font.BOLD,30);
+    Font myFont = new Font("Asap",Font.BOLD,30);
 
     double num1=0,num2=0,result=0;
     char operator;
@@ -24,6 +24,7 @@ public class BaseCalc implements ActionListener {
         frame = new JFrame("Calculator");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(420, 550);
+        frame.setResizable(false);
         frame.setLayout(null);
 
         textfield = new JTextField();
@@ -88,12 +89,14 @@ public class BaseCalc implements ActionListener {
         panel.add(numberButtons[0]);
         panel.add(equButton);
         panel.add(divButton);
+        panel.setBackground(new Color(50, 50, 50));
 
         frame.add(panel);
         frame.add(negButton);
         frame.add(delButton);
         frame.add(clrButton);
         frame.add(textfield);
+        frame.getContentPane().setBackground(new Color(50,50,50));
         frame.setVisible(true);
     }
 

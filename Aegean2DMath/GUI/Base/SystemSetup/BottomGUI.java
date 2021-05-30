@@ -9,7 +9,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  * Automatic Generation Project - Author
@@ -237,11 +238,6 @@ public class BottomGUI extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-//        char[] unwanted = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-//                           'o', 'p', 'q', 'r', 's', 's', 'u', 'v', 'w', 'x', 'y', 'z', '`', '~', '!',
-//                           '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '<', ',', '>',
-//                           '/', '?', ':', ';', '"', '[', '{', ']', '}', '|'};
-
         String length = lengthInputfld.getText().trim();
         String width = widthInputfld.getText().trim();
 
@@ -253,14 +249,24 @@ public class BottomGUI extends JPanel implements ActionListener {
         if(e.getSource() == calculateAreaButton || e.getSource() == jComboBox) {
 
             if(lengthNum < 0 || widthNum < 0) {
-                JOptionPane.showMessageDialog(lengthInputfld, "Please Enter a Value Greater Than 0", "Alert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(lengthInputfld, "Please Enter a Value Greater Than 0",
+                        "Alert", JOptionPane.WARNING_MESSAGE);
             } else {
                 AreaInputfld.setText(result+"");
             }
-            //todo add for no text entered for the txtflds
+            //todo add for no text entered for the txtfld
 
-            //check for the charactes if any unwanted
         }
+        lengthInputfld.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent ke) {
+                if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+                    AreaInputfld.setText(result+"");
+                } else {
+                    JOptionPane.showMessageDialog(lengthInputfld, "Please Enter a Value Greater Than 0",
+                            "Alert", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
 
 
 
@@ -286,7 +292,8 @@ public class BottomGUI extends JPanel implements ActionListener {
                 AreaInputfld.setText("");
                 lengthInputfld.setText("");
                 widthInputfld.setText("");
-                JOptionPane.showMessageDialog(jComboBox, "Please Enter A Value Greater Than Or Equal To 0", "Alert", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(jComboBox, "Please Enter A Value Greater Than Or Equal To 0",
+                        "Alert", JOptionPane.WARNING_MESSAGE);
                 lengthInputfld.setEditable(true);
                 widthInputfld.setEditable(true);
             }
