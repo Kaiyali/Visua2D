@@ -25,8 +25,8 @@ public class SideGUI extends JPanel implements ActionListener {
     private final ClearButton Trianglebutton = new ClearButton();
     private final ClearButton Rectanglebutton = new ClearButton();
     private final JPanel formulaPanel = new JPanel();
-    private final JRadioButton TriangleRbtn=new JRadioButton("Triangle");
-    private final JRadioButton CircleRbtn=new JRadioButton("Circle");
+    private final JCheckBox TriangleRbtn = new JCheckBox("Triangle");
+    private final JCheckBox CircleRbtn= new JCheckBox("Circle");
     private final Font SidePanelFont = new Font("Segoe UI", Font.BOLD, 22);
 
     //this allows to select one radio button and deselect the other

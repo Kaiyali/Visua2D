@@ -21,6 +21,7 @@ import java.util.Objects;
 public class BottomGUI extends JPanel implements ActionListener, KeyListener {
 
 
+    //VARIABLES DEFINING
     public final JPanel SettingPanel = new JPanel();
     public final JPanel DimensionPanel = new JPanel();
     public final JPanel CalPanel = new JPanel();
@@ -46,7 +47,15 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
     private final JLabel un2Label = new JLabel();
 
 
+
+
+    //=====================================================
+    //=====================================================
+    //=====================================================
+    //=====================================================
     //------------------------------------------------------
+
+
 
     public BottomGUI() {
 
@@ -61,7 +70,6 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
 
 
     public void setCalAreaButton() {
-//        calculateAreaButton.setPreferredSize(new Dimension(40, 430));
         calculateAreaButton.setBackground(new Color(0, 0, 0));
         calculateAreaButton.setBounds(15, 17, 200, 60);
         calculateAreaButton.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
@@ -74,12 +82,12 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
     }
 
     public void setCalPCButton() {
-//        calculateAreaButton.setPreferredSize(new Dimension(40, 430));
         calculatePCBtn.setBackground(new Color(17, 0, 0));
         calculatePCBtn.setBounds(15, 17, 200, 60);
         calculatePCBtn.setBorder(BorderFactory.createLineBorder(Color.WHITE, 1));
         calculatePCBtn.setFont(new Font("Arial", Font.BOLD + Font.ITALIC, 19));
         calculatePCBtn.setForeground(Color.WHITE);
+        calculatePCBtn.addActionListener(this);
         calculatePCBtn.setText("CALCULATE Pm.");
         CalcPCPanel.add(calculatePCBtn);
     }
@@ -178,7 +186,7 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
         widthInputfld.setFont(new Font("Consoles", Font.PLAIN, 30));
         widthInputfld.setCaretColor(new Color(60, 58, 58));
         widthInputfld.addKeyListener(this);
-        WidthPanel.add(widthInputfld); // changed
+        WidthPanel.add(widthInputfld);
         setCalcAreaPanel();
     }
 
@@ -190,8 +198,6 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
         setCalcPCPanel();
         setCalAreaButton();
         setJComboBox();
-//        setCalcArealbl();
-//        setCalcAreafld();
     }
 
     public void setCalcPCPanel() {
@@ -199,8 +205,6 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
         CalcPCPanel.setLayout(null);
         CalcPCPanel.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0), 2));
         CalPanel.add(CalcPCPanel);
-//        setCalcPClbl();
-//        setCalcPCfld();
         setCalPCButton();
         setCalcPCfld();
 
@@ -246,13 +250,18 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
 
 
 
+    //-----------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------
+
+
+
 
 
     //FUNCTIONALLITY WORK
-
-
-
-
     char sqr = '\u00B2';
     String cm = "cm";
     String m = "m";
@@ -266,62 +275,52 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-//        char[] unwanted = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
-//                           'o', 'p', 'q', 'r', 's', 's', 'u', 'v', 'w', 'x', 'y', 'z', '`', '~', '!',
-//                           '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '<', ',', '>',
-//                           '/', '?', ':', ';', '"', '[', '{', ']', '}', '|'};
-
-        String length = lengthInputfld.getText().trim();
-        String width = widthInputfld.getText().trim();
-
-        double lengthNum = Double.parseDouble(length);
-        double widthNum = Double.parseDouble(width);
-        double result = ShapeAssets.squareOrRectangleArea(lengthNum, widthNum);
-
-        if (e.getSource() == calculateAreaButton) {
-            if (lengthNum < 0 || widthNum < 0) {
-                JOptionPane.showMessageDialog(lengthInputfld, "Please Enter a Value Greater Than 0", "Error", JOptionPane.ERROR_MESSAGE);
-                lengthInputfld.setEditable(true);
-                lengthInputfld.setText("");
-                widthInputfld.setEditable(true);
-                widthInputfld.setText("");
-            } else {
-                AreaInputfld.setText(result + "");
-            }
-            //todo add for no text entered for the txtflds
-            //check for the charactes if any unwanted
-        }
-
-
-        //for combo box or drop down menu
-        if (e.getSource() == jComboBox) {
-
-            //using string builder to delete the last character - superscript 2
-            String selected = (String) jComboBox.getSelectedItem();
-
-            assert selected != null;
-            AreaInputfld.setText(result + " " + selected + sqr);
-
-            lengthInputfld.setText(lengthNum + " " + selected);
+        if((e.getSource() == calculateAreaButton) && (lengthInputfld.getText().isEmpty() || widthInputfld.getText().isEmpty())) {
             lengthInputfld.setEditable(false);
-
-            widthInputfld.setText(widthNum + " " + selected);/*this deletes the last character of the string*/
             widthInputfld.setEditable(false);
-            //clear the fields - or it won't work
-            //todo implement the PC field for units
-            //todo implement clear button
+            JOptionPane.showMessageDialog(calculateAreaButton, "Please Enter Some Positive Numerical Values To Compute", "Error Occurred", JOptionPane.ERROR_MESSAGE);
+            lengthInputfld.setEditable(true);
+            widthInputfld.setEditable(true);
+        } else if((e.getSource() == calculatePCBtn) && (lengthInputfld.getText().isEmpty()) || widthInputfld.getText().isEmpty()) {
+            lengthInputfld.setEditable(false);
+            widthInputfld.setEditable(false);
+            JOptionPane.showMessageDialog(calculatePCBtn, "Please Enter Some Positive Numerical Values To Compute", "Error Occurred", JOptionPane.ERROR_MESSAGE);
+            lengthInputfld.setEditable(true);
+            widthInputfld.setEditable(true);
+        } else if((e.getSource() == jComboBox) && (lengthInputfld.getText().isEmpty()) || widthInputfld.getText().isEmpty()) {
+            lengthInputfld.setEditable(false);
+            widthInputfld.setEditable(false);
+            JOptionPane.showMessageDialog(jComboBox, "Please Enter Some Positive Numerical Values To Compute", "Error Occurred", JOptionPane.ERROR_MESSAGE);
+            lengthInputfld.setEditable(true);
+            widthInputfld.setEditable(true);
+        } else {
+            String length = lengthInputfld.getText().trim();
+            String width = widthInputfld.getText().trim();
+            double lengthNum = Double.parseDouble(length);
+            double widthNum = Double.parseDouble(width);
+            double result = ShapeAssets.squareOrRectangleArea(lengthNum, widthNum);
+            double result2 = ShapeAssets.squareRectanglePerimeter(lengthNum, widthNum);
 
-            if (lengthNum < 0 || widthNum < 0) {
-                AreaInputfld.setText("");
-                lengthInputfld.setText("");
-                widthInputfld.setText("");
-                JOptionPane.showMessageDialog(jComboBox, "Please Enter A Value Greater Than Or Equal To 0", "Error", JOptionPane.ERROR_MESSAGE);
-                lengthInputfld.setEditable(true);
-                widthInputfld.setEditable(true);
+            if (e.getSource() == calculateAreaButton) {
+                AreaInputfld.setText(result + "");
+            } else if(e.getSource() == calculatePCBtn) {
+                PCInputfld.setText(result2 + "");
+            }
+            if (e.getSource() == jComboBox) {
+                String selected = (String) jComboBox.getSelectedItem();
+                assert selected != null;
+                AreaInputfld.setText(result + " " + selected + sqr);
+                PCInputfld.setText(result2 + " " + selected);
+                lengthInputfld.setText(lengthNum + " " + selected);
+                lengthInputfld.setEditable(false);
+                widthInputfld.setText(widthNum + " " + selected);/*this deletes the last character of the string*/
+                widthInputfld.setEditable(false);
             }
         }
     }
 
+
+    //CODE FOR COMBOBOX
     String[] units = {cm, m, mm, km, in, yd, ft, mi};
 
     public void setJComboBox() {
@@ -344,13 +343,7 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
 
 
 
-
-    //not needed - but needed or else the class won't work
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
-
+    //CODE FOR IMPLEMENTING CONSTRAINTS ON THE TEXT FIELDS
     @Override
     public void keyPressed(KeyEvent ke) {
         if(ke.getSource() == lengthInputfld) {
@@ -372,22 +365,15 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-
-
-
-    /*
-    //todo set up PC Fields
-    //todo set up joptionpane for text entered into text field
-    //todo icons - for the shape
-
-    //DANIEL
-    //todo shapes with openGL - don't know how the hell you will do that
-     */
-
-
-    //not needed but still needed because or else the class won't work
     @Override
     public void keyReleased(KeyEvent e) {
 
     }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    //-------------------------------------------------------
 }
