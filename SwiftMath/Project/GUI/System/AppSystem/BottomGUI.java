@@ -77,7 +77,6 @@ public class BottomGUI extends JPanel implements ActionListener, KeyListener {
         setSettingPanel();
     }
 
-
     public void setCalAreaButton() {
         calculateAreaButton.setBackground(AppColors.Variety_BLACK);
         calculateAreaButton.setBounds(15, 17, 200, 60);

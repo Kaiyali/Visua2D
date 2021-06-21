@@ -12,8 +12,9 @@ public class AppColors {
     public static Color Midnight_Blue = new Color(0, 12, 82);
     
     //Heaven theme
-    public static Color Light_White = new Color(212, 212, 211);
-
+    public static Color Light_White = new Color(215, 215, 219);
+    public static Color Serenity = new Color(27, 74, 86);
+    public static Color Crimson = new Color(113,1, 23);
     //TODO Ocean - DANIEL 1
     public static Color Misty_blue = new Color(0x313B41);
     public static Color Blue_Grotto = new Color(98, 184, 252);

@@ -2,11 +2,9 @@ package SwiftMath.Project.Resources.Math;
 
 
 public class ShapeAssets {
-
     public static double squareOrRectangleArea(double length, double width) {
         return length * width;
     }
-    //double result = squareOrRectangleArea(lengthNum, widthNum);
 
     public static double squareRectanglePerimeter(double length, double width) {
         return (2 * length) + (2 * width);

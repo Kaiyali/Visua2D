@@ -21,19 +21,19 @@ public class ThemeWindow extends JFrame implements ActionListener {
     public ThemeWindow() {
         this.setResizable(false);
         this.setTitle("Choose Theme");
-        this.setSize(350, 300);
+        this.setSize(500, 300);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ImageIcon img = new ImageIcon("src/Aegean2DMath/Images/UITheme-removebg-preview.png");
         this.setLayout(null);
         this.setIconImage(img.getImage());
-        this.getContentPane().setBackground(new Color(238, 238, 238));
+        this.getContentPane().setBackground(new Color(56, 55, 55));
 
-        ChooseThemeLbl.setForeground(Color.BLACK);
-        ChooseThemeLbl.setFont(new Font("Arial Black", Font.BOLD, 26));
+        ChooseThemeLbl.setForeground(AppColors.White);
+        ChooseThemeLbl.setFont(new Font("Arial Black", Font.BOLD, 20));
         ChooseThemeLbl.setBounds(15, 30, 350, 50);
         this.add(ChooseThemeLbl);
 
-        chooseThemeComboBox.setBounds(70,80, 170, 40);
+        chooseThemeComboBox.setBounds(270,30, 170, 50);
         chooseThemeComboBox.setEditable(false);
         chooseThemeComboBox.setFont(new Font("Arial", Font.BOLD, 20));
         chooseThemeComboBox.addActionListener(this);
@@ -46,7 +46,69 @@ public class ThemeWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if(chooseThemeComboBox.getSelectedItem() == themes[0]) {
-            //Change the theme to Heaven White Theme
+            Application.bottomPanel.setBackground(AppColors.Serenity);
+            Application.bottomPanel.setBorder(BottomGUI.BlackLine);
+            BottomGUI.calculateAreaButton.setBackground(AppColors.Light_White);
+            BottomGUI.calculateAreaButton.setBorder(BorderFactory.createLineBorder(AppColors.Black, 1));
+            BottomGUI.calculateAreaButton.setForeground(AppColors.Black);
+            BottomGUI.calculatePCBtn.setBackground(AppColors.Light_White);
+            BottomGUI.calculatePCBtn.setBorder(BorderFactory.createLineBorder(AppColors.Variety_WHITE, 1));
+            BottomGUI.calculatePCBtn.setForeground(AppColors.Black);
+            BottomGUI.DimensionPanel.setBackground(AppColors.Serenity);
+            BottomGUI.DimensionPanel.setBorder(BorderFactory.createLineBorder(AppColors.Black, 2));
+            BottomGUI.LengthPanel.setBackground(AppColors.Serenity);
+            BottomGUI.LengthPanel.setBorder(BorderFactory.createLineBorder(AppColors.Black, 2));
+            BottomGUI.WidthPanel.setBackground(AppColors.Serenity);
+            BottomGUI.WidthPanel.setBorder(BorderFactory.createLineBorder(AppColors.Black, 2));
+            BottomGUI.CalPanel.setBackground(AppColors.Serenity);
+            BottomGUI.lengthlbl.setBackground(AppColors.Light_White);
+            BottomGUI.lengthlbl.setForeground(AppColors.Light_White);
+            BottomGUI.lengthInputfld.setBorder(BorderFactory.createLineBorder(AppColors.White, 1));
+            BottomGUI.lengthInputfld.setCaretColor(AppColors.Variety_Misty_Gray);
+            BottomGUI.widthlbl.setForeground(AppColors.Light_White);
+            BottomGUI.widthInputfld.setBorder(BorderFactory.createLineBorder(AppColors.Black, 1));
+            BottomGUI.widthInputfld.setCaretColor(AppColors.Variety_Misty_Gray);
+            BottomGUI.CalcAreaPanel.setBackground(AppColors.Serenity);
+            BottomGUI.CalcAreaPanel.setBorder(BorderFactory.createLineBorder(AppColors.Black, 2));
+            BottomGUI.CalcPCPanel.setBackground(AppColors.Serenity);
+            BottomGUI.CalcPCPanel.setBorder(BorderFactory.createLineBorder(AppColors.Black, 2));
+            BottomGUI.AreaInputfld.setBorder(BorderFactory.createLineBorder(AppColors.Black, 1));
+            BottomGUI.AreaInputfld.setCaretColor(AppColors.Variety_Misty_Gray);
+            BottomGUI.PCInputfld.setBorder(BorderFactory.createLineBorder(AppColors.Black, 1));
+            BottomGUI.PCInputfld.setCaretColor(AppColors.Variety_Misty_Gray);
+            BottomGUI.unlabel.setForeground(AppColors.Crimson);
+            BottomGUI.un2Label.setForeground(AppColors.Crimson);
+            BottomGUI.clearButton.setBackground(AppColors.Light_White);
+            BottomGUI.clearButton.setForeground(AppColors.Black);
+
+            //SIDE GUI
+            Application.sidePanel.setBackground(AppColors.Serenity);
+            SideGUI.QuadButton.setBackground(AppColors.Light_White);
+            SideGUI.QuadButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+            SideGUI.QuadButton.setForeground(AppColors.Black);
+            SideGUI.Trianglebutton.setBackground(AppColors.Light_White);
+            SideGUI.Trianglebutton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+            SideGUI.Trianglebutton.setForeground(AppColors.Black);
+            SideGUI.CircleButton.setBackground(AppColors.Light_White);
+            SideGUI.CircleButton.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+            SideGUI.CircleButton.setForeground(AppColors.Black);
+            SideGUI.CalculatorButton.setBackground(AppColors.Crimson);
+            SideGUI.CalculatorButton.setForeground(AppColors.Black);
+            SideGUI.formulaPanel.setBackground(AppColors.Serenity);
+            SideGUI.formulaPanel.setBorder(BorderFactory.createLineBorder(AppColors.Variety_WHITE, 2));
+            SideGUI.TriangleRbtn.setBackground(AppColors.Variety_BLACK);
+            SideGUI.TriangleRbtn.setForeground(AppColors.Light_White);
+            SideGUI.CircleRbtn.setBackground(AppColors.Variety_BLACK);
+            SideGUI.CircleRbtn.setForeground(AppColors.Light_White);
+            SideGUI.OpenQuad.setBackground(AppColors.Variety_WHITE);
+            SideGUI.OpenQuad.setForeground(new Color(255, 255, 255));
+
+            //ColorPalletePanel
+            Application.colorPalettePanel.setBackground(AppColors.Midnight_Black.brighter().brighter().brighter());
+            Application.colorPalettePanel.setBorder(BorderFactory.createLineBorder(AppColors.Variety_BLACK, 4));
+            ColorPalettePanel.openColorChooser.setForeground(AppColors.Black);
+            ColorPalettePanel.openColorChooser.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+            ColorPalettePanel.openColorChooser.setBackground(AppColors.Light_White);
         }
 
         if(chooseThemeComboBox.getSelectedItem() == themes[1]) {
