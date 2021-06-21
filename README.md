@@ -1,4 +1,4 @@
-# GeoMath-2D/3D
+# Visua 2D
 
 This application developed using the JAVA programming language is the first-ever collaboration between DANIEL KAIYALI  and ARCHISMAN NATH with the intention of developing a 
 mathematical application that shows the audience step-by-step how to solve their math problems. This application also has numerous geometric formulas and includes visual exhibits 
